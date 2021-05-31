@@ -7,9 +7,9 @@ const config: MenuEntry[] = [
     href: 'https://pancakeswap.finance/',
   },
   {
-    label: 'Shares',
+    label: 'PrivatePlacement',
     icon: 'TicketIcon',
-    href: '/shares',
+    href: '/privatePlacement',
   },
   // {
   //   label: 'Trade',

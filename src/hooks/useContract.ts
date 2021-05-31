@@ -63,3 +63,7 @@ export function useMulticallContract(): Contract | null {
   const { chainId } = useActiveWeb3React()
   return useContract(chainId && MULTICALL_NETWORKS[chainId], MULTICALL_ABI, false)
 }
+
+export function useAContract(address: string | undefined, ABI: any): Contract | null {
+  return useContract(address, ABI)
+}

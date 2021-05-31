@@ -11,7 +11,7 @@ import AddLiquidity from './AddLiquidity'
 import Pool from './Pool'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
-import Shares from './Shares'
+import PrivatePlacement from './PrivatePlacement'
 import Swap from './Swap'
 import Migration from './Migration'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
@@ -124,7 +124,7 @@ export default function App() {
                       <Route exact strict path="/pool" component={Pool} />
                       <Route exact path="/add" component={AddLiquidity} />
                       <Route exact path="/migrate" component={Migration} />
-                      <Route exact path="/shares" component={Shares} />
+                      <Route exact strict path="/privatePlacement" component={PrivatePlacement} />
                       <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 
                       {/* Redirection: These old routes are still used in the code base */}

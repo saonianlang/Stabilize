@@ -1,10 +1,12 @@
 import { ConnectorNames } from '@pancakeswap-libs/uikit'
-import { Web3Provider } from '@ethersproject/providers'
+import { Web3Provider, JsonRpcProvider } from '@ethersproject/providers'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 import { BscConnector } from '@binance-chain/bsc-connector'
+import ethers from 'ethers';
 import { NetworkConnector } from './NetworkConnector'
+
 
 const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
 

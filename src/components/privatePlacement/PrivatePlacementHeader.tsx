@@ -4,7 +4,8 @@ import { Heading, Text, Flex } from '@pancakeswap-libs/uikit'
 
 interface PageHeaderProps {
   title: ReactNode
-  description?: ReactNode
+  lumpSum?: ReactNode
+  userSum?: ReactNode
   children?: ReactNode
 }
 
@@ -17,16 +18,21 @@ const Details = styled.div`
   flex: 1;
 `
 
-const SharesPageHeader = ({ title, description, children }: PageHeaderProps) => {
+const PrivatePlacementHeader = ({ title, userSum, lumpSum, children }: PageHeaderProps) => {
 
   return (
     <StyledHeader>
       <Flex alignItems="center">
         <Details>
           <Heading mb="8px">{title}</Heading>
-          {description && (
+          {lumpSum && (
             <Text color="textSubtle" fontSize="14px">
-              {description}
+              私募总额：{lumpSum} BNB
+            </Text>
+          )}
+          {userSum && (
+            <Text color="textSubtle" fontSize="14px">
+              我的私募金额：{userSum} BNB
             </Text>
           )}
         </Details>
@@ -35,4 +41,4 @@ const SharesPageHeader = ({ title, description, children }: PageHeaderProps) => 
     </StyledHeader>
   )
 };
-export default SharesPageHeader
+export default PrivatePlacementHeader
