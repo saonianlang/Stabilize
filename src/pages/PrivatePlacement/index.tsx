@@ -18,6 +18,7 @@ import TOKEN_ABI from '../../constants/abis/token.json';
 import USDT_ABI from '../../constants/abis/usdt.json';
 import { useActiveWeb3React } from '../../hooks/index';
 import { useAddPopup } from '../../state/application/hooks';
+import { privatePlacement } from '../../connectors'
 
 
 const InputRow = styled.div<{ selected: boolean }>`
@@ -50,10 +51,10 @@ const PrivatePlacement = () => {
 
     // 创建代币合约
     // 创建交易池合约
-    const poolAddr = '0xebc17d6215a96a7459b1409e19c858c7ad774f9b';
-    const tokenAddr = '0x0c2d548cf6a64fd85633715e8b5825b9a2fa2fd0';
-    const usdtAddr = '0xf31481b71aC5Fad22FE5B4030861BC898D0bAe77';
-
+    const poolAddr = privatePlacement.pool;
+    const tokenAddr = privatePlacement.token;
+    const usdtAddr = privatePlacement.bnb;
+    
     const poolContract = useAContract(poolAddr, POOL_ABI);
     const tokenContract = useAContract(tokenAddr, TOKEN_ABI);
     const usdtContract = useAContract(usdtAddr, USDT_ABI);
@@ -85,6 +86,7 @@ const PrivatePlacement = () => {
             console.log(status);
             showPopup('sendTransaction', 'Equity subscription success', true);
             getPrivatePlacementNumber();
+            setValue('0')
         } catch (error) {
             showPopup('sendTransaction', 'transaction failed', false);
             console.error('transaction failed');
@@ -94,6 +96,7 @@ const PrivatePlacement = () => {
     // 获取总量显示
     async function getPrivatePlacementNumber() {
         if(lumpSum !== '0' && userSum !== '0') return;
+        if(!tokenContract || !usdtContract) return;
         try {
             // 获取股权总额
             const total = tokenContract ? await tokenContract.balanceOf(poolAddr) : null;
@@ -134,10 +137,11 @@ const PrivatePlacement = () => {
             console.error('Authorization failed');
         }
     }
-
-    getPrivatePlacementNumber();
+    
+    setInterval(() => {
+        getPrivatePlacementNumber();
+    }, 1000);
     getApprove();
-
     const handleDismissConfirmation = useCallback(() => {
         setShowConfirm(false)
     }, [])

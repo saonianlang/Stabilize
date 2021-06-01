@@ -53,3 +53,11 @@ export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.WalletConnect]: walletconnect,
   [ConnectorNames.BSC]: bscConnector,
 }
+
+console.log(process);
+// 
+export const privatePlacement = {
+  pool: process.env.REACT_APP_PRIVATRPLACEMENT_POOL,
+  token: process.env.REACT_APP_PRIVATRPLACEMENT_TOKEN,
+  bnb: process.env.REACT_APP_PRIVATRPLACEMENT_BNB
+}
