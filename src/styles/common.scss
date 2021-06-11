@@ -1,0 +1,20 @@
+/** shared between modules common css */
+
+.el-dialog {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(247, 248, 250);
+    box-shadow: rgb(47 128 237 / 5%) 0px 4px 8px 0px;
+    border-radius: 20px;
+    .el-dialog__title {
+        font-weight: 600;
+    }
+    .el-dialog__close {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}
+
+.wallet_provider__wrapper .provider_item .supported_wallets div {
+    margin: 0px 4px 0px 4px;
+    padding: 0px !important;
+}
