@@ -94,7 +94,7 @@ function getBlockNumber({provider}) {
 
 connect();
 
-module.exports = {
+export default {
     walletProvider,
     async walletShowModal() {
         await walletProvider.showModal();
