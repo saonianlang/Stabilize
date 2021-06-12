@@ -96,15 +96,17 @@ export default {
             this.$store.commit('app/SET_THEME', themeName);
         },
         async onLogin() {
-            await this.$wallet.walletShowModal();
+            await this.$wallet.onConnect();
         },
         async onChange() {
-            await this.$wallet.walletShowModal();
+            const web3Modal = this.$wallet.web3Modal;
+            await web3Modal.clearCachedProvider();
+            await web3Modal.toggleModal();
+            if (web3Modal.cachedProvider) this.$wallet.onConnect();
             this.changeVisible = false;
         },
         setNavActive() {
             const currentPath = this.$route.path;
-            console.log(currentPath);
             const index = this.navs.findIndex(item => item.path === currentPath);
             if (index !== -1) this.navIndex = index;
         }

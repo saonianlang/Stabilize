@@ -1,4 +1,4 @@
-import wallet from '@/connectors';
+import WalletConnection from '@/connectors';
 import Vue from 'vue';
 
-Vue.prototype.$wallet = wallet;
+Vue.prototype.$wallet = new WalletConnection();

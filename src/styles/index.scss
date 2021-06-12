@@ -135,6 +135,9 @@ input::placeholder {
             display: none;
         }
     }
+    .el-message-box {
+        width: 80%;
+    }
 }
 
 @media (max-width: 720px) {

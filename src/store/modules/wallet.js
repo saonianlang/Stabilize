@@ -1,4 +1,4 @@
-import {Contract, providers} from 'ethers';
+import {Contract} from 'ethers';
 import {token_address} from '@/connectors/config';
 import PoolAbi from '@/abis/pool';
 import TokenAbi from '@/abis/token';
@@ -45,7 +45,7 @@ const mutations = {
 
 const actions = {
     login({commit}, {provider, account, chainId}) {
-        const signer = new providers.Web3Provider(provider).getSigner();
+        const signer = provider.getSigner();
         commit('SET_PROVIDER', provider);
         commit('SET_ACCOUNT', account);
         commit('SET_CHAINID', chainId);
