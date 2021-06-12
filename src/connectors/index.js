@@ -21,16 +21,12 @@ class WalletConnection {
                 options: {
                     rpc: {
                         [chain_id]: network_url
-                    },
-                    qrcodeModalOptions: {
-                        mobileLinks: ['rainbow', 'metamask', 'argent', 'trust', 'imtoken', 'pillar', 'tokenpocket']
                     }
                 }
             }
         };
 
         this.web3Modal = new Web3Modal({
-            network: 'bsc', // optional
             cacheProvider: false,
             disableInjectedProvider: false,
             providerOptions // required
