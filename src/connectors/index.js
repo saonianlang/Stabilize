@@ -8,7 +8,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import store from '../store';
 import {MessageBox} from 'element-ui';
 import {providers} from 'ethers';
-import {network_url, chain_id} from './config';
+import {NETWORK_URL, CHAIN_ID} from './config';
 
 class WalletConnection {
     constructor() {
@@ -20,7 +20,7 @@ class WalletConnection {
                 package: WalletConnectProvider, // required
                 options: {
                     rpc: {
-                        [chain_id]: network_url
+                        [CHAIN_ID]: NETWORK_URL
                     }
                 }
             }
@@ -109,7 +109,7 @@ class WalletConnection {
     // Judgment the main network ID
     isNetwork(chainId) {
         return new Promise((resolve, reject) => {
-            if (chainId != chain_id) {
+            if (chainId != CHAIN_ID) {
                 MessageBox('Your current network is not the network required by the application, please switch to the relevant network?', 'network', {
                     confirmButtonText: 'confirm',
                     cancelButtonText: 'cancel'

@@ -1,5 +1,5 @@
 import {Contract} from 'ethers';
-import {token_address} from '@/connectors/config';
+import {POOLS_ADDRESS, TOKEN_ADDRESS} from '@/connectors/config';
 import PoolAbi from '@/abis/pool';
 import TokenAbi from '@/abis/token';
 import UsdtAbi from '@/abis/usdt';
@@ -49,9 +49,9 @@ const actions = {
         commit('SET_PROVIDER', provider);
         commit('SET_ACCOUNT', account);
         commit('SET_CHAINID', chainId);
-        commit('SET_POOL_CONTRACT', new Contract(token_address.pool, PoolAbi, signer));
-        commit('SET_TOKEN_CONTRACT', new Contract(token_address.token, TokenAbi, signer));
-        commit('SET_USDT_CONTRACT', new Contract(token_address.usdt, UsdtAbi, signer));
+        commit('SET_POOL_CONTRACT', new Contract(POOLS_ADDRESS.privatePlacement, PoolAbi, signer));
+        commit('SET_TOKEN_CONTRACT', new Contract(TOKEN_ADDRESS.pGYRO, TokenAbi, signer));
+        commit('SET_USDT_CONTRACT', new Contract(TOKEN_ADDRESS.USDT, UsdtAbi, signer));
     },
     logout({commit}) {
         commit('SET_ACCOUNT', '');

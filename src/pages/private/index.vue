@@ -30,7 +30,7 @@
 </template>
 <script>
 import {utils, BigNumber, constants} from 'ethers';
-import {token_address} from '@/connectors/config';
+import {POOLS_ADDRESS} from '@/connectors/config';
 
 export default {
     components: {},
@@ -78,7 +78,7 @@ export default {
         async getApprove() {
             const {usdtContract, account} = this.$store.state.wallet;
             try {
-                const isQuota = await usdtContract.allowance(account, token_address.pool);
+                const isQuota = await usdtContract.allowance(account, POOLS_ADDRESS.privatePlacement);
                 if (BigNumber.isBigNumber(isQuota)) this.isApprove = true;
             } catch (error) {
                 console.log(error);
@@ -90,7 +90,7 @@ export default {
             const {usdtContract} = this.$store.state.wallet;
             try {
                 this.loading = true;
-                const quota = await usdtContract.approve(token_address.pool, constants.MaxUint256);
+                const quota = await usdtContract.approve(POOLS_ADDRESS.privatePlacement, constants.MaxUint256);
                 if (BigNumber.isBigNumber(quota)) this.isApprove = true;
                 this.loading = false;
                 this.$message.success(this.$t('page.authorizationSuccess'));
@@ -106,7 +106,7 @@ export default {
             if (!tokenContract || !usdtContract) return;
             try {
                 // Get the total amount of equity
-                const total = await tokenContract.balanceOf(token_address.pool);
+                const total = await tokenContract.balanceOf(POOLS_ADDRESS.privatePlacement);
                 // Get the current user equity total
                 const userTotal = await tokenContract.balanceOf(account);
                 // Get my USDT balance

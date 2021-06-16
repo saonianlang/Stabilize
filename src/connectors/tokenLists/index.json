@@ -1,0 +1,30 @@
+{
+    "name": "pre-gyro token list",
+    "timestamp": "2021-06-16T09:56:23Z",
+    "version": {
+        "major": 0,
+        "minor": 0,
+        "patch": 0
+    },
+    "tags": {},
+    "logoURI": "",
+    "keywords": ["pre-gyro", "default"],
+    "tokens": [
+        {
+            "name": "Pre-Gyro",
+            "symbol": "pGYRO",
+            "address": "0x0c2d548cf6a64fd85633715e8b5825b9a2fa2fd0",
+            "chainId": 97,
+            "decimals": 18,
+            "logoURI": ""
+        },
+        {
+            "name": "Tether USD",
+            "symbol": "USDT",
+            "address": "0xf31481b71aC5Fad22FE5B4030861BC898D0bAe77",
+            "chainId": 97,
+            "decimals": 18,
+            "logoURI": ""
+        }
+    ]
+}
