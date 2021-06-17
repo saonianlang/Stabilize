@@ -12,7 +12,7 @@
             <div class="info">
                 <div class="item">
                     <p class="label">{{ $t('page.yourPrivateAmount') }}</p>
-                    <p class="value">{{ userSum }} GYRO</p>
+                    <p class="value">{{ userSum }} pGRO</p>
                 </div>
             </div>
             <div class="btns">
