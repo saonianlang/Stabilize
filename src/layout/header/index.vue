@@ -5,9 +5,9 @@
                 <svg-icon :icon-class="$store.state.app.theme === 'light' ? 'logo' : 'logo-dark'" />
             </div>
             <div class="navigation">
-                <router-link :class="index === navIndex ? 'active' : ''" v-for="(nav, index) in navs" :key="nav.name" :to="nav.path">
+                <!-- <router-link :class="index === navIndex ? 'active' : ''" v-for="(nav, index) in navs" :key="nav.name" :to="nav.path">
                     {{ nav.name }}
-                </router-link>
+                </router-link> -->
             </div>
             <div class="wallet">
                 <el-button v-if="!$store.state.wallet.account" @click="onLogin" class="account" plain round>{{ $t('page.connectWallet') }}</el-button>
