@@ -12,11 +12,7 @@
             <div class="info">
                 <div class="item">
                     <p class="label">{{ $t('page.yourPrivateAmount') }}</p>
-                    <p class="value">{{ userSum }} USDT</p>
-                </div>
-                <div class="item">
-                    <p class="label">{{ $t('page.participatePrivateAmount') }}</p>
-                    <p class="value">{{ lumpSum }} GYRO</p>
+                    <p class="value">{{ userSum }} GYRO</p>
                 </div>
             </div>
             <div class="btns">
@@ -106,12 +102,12 @@ export default {
             if (!tokenContract || !usdtContract) return;
             try {
                 // Get the total amount of equity
-                const total = await tokenContract.balanceOf(POOLS_ADDRESS.privatePlacement);
+                // const total = await tokenContract.balanceOf(POOLS_ADDRESS.privatePlacement);
                 // Get the current user equity total
                 const userTotal = await tokenContract.balanceOf(account);
                 // Get my USDT balance
                 const userUsdt = await usdtContract.balanceOf(account);
-                this.lumpSum = (1000000000 - parseFloat(utils.formatEther(total))).toFixed(2);
+                // this.lumpSum = (1000000000 - parseFloat(utils.formatEther(total))).toFixed(2);
                 this.userSum = parseFloat(utils.formatEther(userTotal)).toFixed(2);
                 this.userBalance = parseFloat(utils.formatUnits(userUsdt, 6)).toFixed(2);
             } catch (error) {
