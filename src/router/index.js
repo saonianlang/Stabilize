@@ -36,7 +36,7 @@ export const constantRoutes = [
     {
         path: '/',
         component: Layout,
-        redirect: '/private',
+        redirect: '/porfolio',
         children: [
             {
                 path: 'porfolio',
